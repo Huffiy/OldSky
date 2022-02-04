@@ -19,14 +19,13 @@ if __name__ == "__main__":
         urltrackMP3 = track['preview_url']
         urltrackAlbum = track['album']['images'][0]['url']
 
-        # Save files to /downloads directory
+        # Saves obtained URLs into variables
         getTrackImg = requests.get(urltrackAlbum)
         getTrackMP3 = requests.get(urltrackMP3)
-        open('downloads/img/r.png', 'wb').write(getTrackImg.content)
-        open('downloads/mp3/r.mp3', 'wb').write(getTrackMP3.content)
-        scuuc = "bellisceddu"
+
+        # Serves variables to flask webserver
         app = Flask(__name__)
         @app.route("/")
         def index():
-            return render_template('index.html')
-        app.run(host="127.0.0.1", port=8080, debug=True)
+            return render_template('index.html', img=urltrackAlbum, mp3=urltrackMP3)
+        app.run(host="::1", port=8080, debug=True)
