@@ -1,6 +1,9 @@
+from flask import Flask, render_template
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import requests
+
+
 
 if __name__ == "__main__":
     # Auth Spotify API
@@ -21,3 +24,9 @@ if __name__ == "__main__":
         getTrackMP3 = requests.get(urltrackMP3)
         open('downloads/img/r.png', 'wb').write(getTrackImg.content)
         open('downloads/mp3/r.mp3', 'wb').write(getTrackMP3.content)
+        scuuc = "bellisceddu"
+        app = Flask(__name__)
+        @app.route("/")
+        def index():
+            return render_template('index.html')
+        app.run(host="127.0.0.1", port=8080, debug=True)
