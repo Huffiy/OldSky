@@ -1,9 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import requests
-
-
 
 if __name__ == "__main__":
     # Auth Spotify API
@@ -19,13 +17,23 @@ if __name__ == "__main__":
         urltrackMP3 = track['preview_url']
         urltrackAlbum = track['album']['images'][0]['url']
 
-        # Saves obtained URLs into variables
-        getTrackImg = requests.get(urltrackAlbum)
-        getTrackMP3 = requests.get(urltrackMP3)
+    # Saves obtained URLs into variables
+    getTrackImg = requests.get(urltrackAlbum)
+    getTrackMP3 = requests.get(urltrackMP3)
 
-        # Serves variables to flask webserver
-        app = Flask(__name__)
-        @app.route("/")
-        def index():
-            return render_template('index.html', img=urltrackAlbum, mp3=urltrackMP3)
-        app.run(host="::1", port=8080, debug=True)
+    # Serves variables to flask webserver
+    app = Flask(__name__)
+    @app.route('/')
+    def index():
+        return render_template('index.html', img=urltrackAlbum, mp3=urltrackMP3)
+
+
+    @app.route('/', methods=['POST'])
+    def my_form_post():
+        textboxInput = request.form['text']
+        URIinput = textboxInput.upper()
+        print(URIinput)
+        return render_template('index.html', img=urltrackAlbum, mp3=urltrackMP3)
+
+
+    app.run(host="::1", port=8080, debug=True)
