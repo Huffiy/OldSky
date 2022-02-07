@@ -18,7 +18,9 @@ if __name__ == "__main__":
 
     @app.route('/', methods=['POST'])
     def my_form_post():
-        lz_uri = 'spotify:artist:6NJpuZla7aHLZEfMBSMcH8'  # Artist URI
+        textboxInput = request.form['text']
+        URIinput = textboxInput
+        lz_uri = URIinput # Artist URI
         spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
         results = spotify.artist_top_tracks(lz_uri)
         for track in results['tracks'][:1]:
@@ -27,13 +29,10 @@ if __name__ == "__main__":
             urltrackAlbum = track['album']['images'][0]['url']
 
         # Saves obtained URLs into variables
-        getTrackImg = requests.get(urltrackAlbum)
-        getTrackMP3 = requests.get(urltrackMP3)
+        requests.get(urltrackAlbum)
+        requests.get(urltrackMP3)
 
         # ---
-        textboxInput = request.form['text']
-        URIinput = textboxInput.upper()
-        print(URIinput)
         return render_template('index.html', img=urltrackAlbum, mp3=urltrackMP3)
 
 
