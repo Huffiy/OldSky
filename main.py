@@ -18,22 +18,30 @@ if __name__ == "__main__":
 
     @app.route('/', methods=['POST'])
     def my_form_post():
+        artistImgURL = "None"
+        artistTrackURL = "None"
+        artistURI = "None"
         textboxInput = request.form['text']
-        URIinput = textboxInput
-        lz_uri = URIinput # Artist URI
+        searchInput = textboxInput
         spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-        results = spotify.artist_top_tracks(lz_uri)
-        for track in results['tracks'][:1]:
-            urltrackName = track['name']
-            urltrackMP3 = track['preview_url']
-            urltrackAlbum = track['album']['images'][0]['url']
+        results = spotify.search(q='artist:' + searchInput, type='artist')
+        print(results)
+        print("1")
+        items = results['artists']['items']
+        print("1")
+        if len(items) > 0:
+            print("1")
+            artist = items[0]
+            artistImgURL = artist['images'][0]['url']
+            artistURI = artist['uri']
 
-        # Saves obtained URLs into variables
-        requests.get(urltrackAlbum)
-        requests.get(urltrackMP3)
-
+            print(artistURI)
+            results_uri = spotify.artist_top_tracks(artistURI)
+            for track in results_uri['tracks'][:1]:
+                artistTrackURL = track['preview_url']
         # ---
-        return render_template('index.html', img=urltrackAlbum, mp3=urltrackMP3)
+
+        return render_template('index.html', img=artistImgURL, mp3=artistTrackURL)
 
 
     app.run(host="::1", port=8080, debug=True)
