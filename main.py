@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import requests
 
 if __name__ == "__main__":
     # Auth Spotify API
@@ -26,22 +25,21 @@ if __name__ == "__main__":
         spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
         results = spotify.search(q='artist:' + searchInput, type='artist')
         print(results)
-        print("1")
         items = results['artists']['items']
-        print("1")
         if len(items) > 0:
-            print("1")
             artist = items[0]
             artistImgURL = artist['images'][0]['url']
             artistURI = artist['uri']
 
             print(artistURI)
             results_uri = spotify.artist_top_tracks(artistURI)
-            for track in results_uri['tracks'][:1]:
+
+            searchResultsOut = []
+            for track in results_uri['tracks'][:10]:
+                searchResultsOut.append([track['name']])
                 artistTrackURL = track['preview_url']
         # ---
-
-        return render_template('index.html', img=artistImgURL, mp3=artistTrackURL)
+        return render_template('index.html', img=artistImgURL, mp3=artistTrackURL, searchResults=searchResultsOut)
 
 
     app.run(host="::1", port=8080, debug=True)
