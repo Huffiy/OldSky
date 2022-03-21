@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
-<title>OLD SKY</title>
 
 <head>
-<link rel= "stylesheet" href="CSS.css">
-<img src='spotify.jpg' alt='logo'/>
+	<title>OLD SKY</title>
+	<link rel= "stylesheet" href="CSS.css">
+	<script>
+	function showPwd() {
+        var input = document.getElementById('pwd');
+        if (input.type === "password") {
+          input.type = "text";
+        } else {
+          input.type = "password";
+        }
+      }
+	  </script>
 </head>
-<body>
-<p>
-	Registrazione: <input type text= 'text' name= 'nome' />
-	
-	</p>
-	<input type="password" id="pwd">
-<input type="button" onclick="showPwd()" value="nascondi password">
-	<p>
-	
-	
-	</p>
-	
-	
-	
-	<input type="button" onclick="location.href='index.html'" value="accedi"/>
-	</form>
-	
-	
- <header>
- <h1>SPOTIFY</h1>
- </header>
- <nav>
- </nav>
- <ul>
 
+<body>
+<p></p>
+<img src='spotify.jpg' alt='logo' width=280 height=280/>
+
+<p>
+<form>
+<center>
+<table>
+	<tr><th>Registrazione:</th><td> <input type text= 'text' name= 'nome' /></td><td></td></tr>
+	<tr><th>Password:</th><td> <input type="password" id="pwd"></td>
+    <td> <input type="button" onclick="showPwd()" value="visualizza/nascondi password"></td></tr>
+	<tr><th></th><td><input type="button" onclick="location.href='index.html'" value="accedi"/></td><td></td></tr>
+	
+</table>
+</center>
+	</form>
+	<h1>OLD SKY SPOTIFY</h1>
+	
+	<p>
+	<h4 style= "color:red; background-color:white">Enrico Del canto - Matteo Vescovo - Davide Ballerini - Simone Rossi - Matteo Aramini</h4>
+	
+
+ </body>
+</html>
   
