@@ -11,17 +11,24 @@
 </head>
 <body>
     Insert an Artist Name to play his top track
+<center>
     <form method="POST">
         <input name="text">
         <input type="submit">
     </form> <br> <br>
-
+</center> ,
+    
     {{ searchResults }}
 
     <br>
-    <img src="{{ img }}"> ,
-    <audio controls>
+    <center>
+    <img src="{{ img }}">
+</center> ,
+   <center>
+
+   <audio controls>
         <source src="{{ mp3 }}" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio element.  
     </audio>
+</center>
 </body>
