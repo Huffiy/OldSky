@@ -7,28 +7,54 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/CSS2.css') }}">
 
     <h1>Test 0.2</h1> <br>
-    --- <br>
+     <br>
 </head>
 <body>
-    Insert an Artist Name to play his top track
+    <center>
+   
+        Insert an Artist Name to play his top track
+
+</center>
+ <br>
 <center>
+
     <form method="POST">
+        
         <input name="text">
+       
         <input type="submit">
-    </form> <br> <br>
-</center> ,
     
+    </form> <br> <br>
+
+</center>  
+
+<center>
+  
     {{ searchResults }}
 
-    <br>
+</center> 
+   
+<br>
+   
     <center>
-    <img src="{{ img }}">
-</center> ,
-   <center>
+  
+        <img src="immagine.PNG" alt="immagine">
+    
+    <br>
+
+</center> 
+  
+<center>
 
    <audio controls>
-        <source src="{{ mp3 }}" type="audio/mpeg">
+       <br>
+       
+       <source src="{{ mp3 }}" type="audio/mpeg">
+    
         Your browser does not support the audio element.  
     </audio>
+    
+    <br>
 </center>
+
 </body>
