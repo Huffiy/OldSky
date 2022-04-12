@@ -23,15 +23,14 @@
 <p>
 <form>
 <center>
-<table>
-	<tr><th>Registrazione:</th><td> <input type text= 'text' name= 'nome' /></td><td></td></tr>
-	<tr><th>Password:</th><td> <input type="password" id="pwd"></td>
-    <td> <input type="button" onclick="showPwd()" value="visualizza/nascondi password"></td></tr>
-	<tr><th></th><td><input type="button" onclick="location.href='index.html'" value="accedi"/></td><td></td></tr>
-	
-</table>
+<form action="login.php" method="post">
+	<input type="text" name="nome" placeholder="Username" required>
+	<input type="password" name="password" placeholder="Password" required>
+	<input type="button" onclick="showPwd()" value="visualizza/nascondi password"> <br>
+	<input type="submit" value="Login">
+</form>
 </center>
-	</form>
+	
 	<h1>OLD SKY SPOTIFY</h1>
 	
 	<p>
