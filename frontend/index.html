@@ -1,59 +1,138 @@
 <!DOCTYPE html>
-<html lang="en-bg">
+<html lang="en">
 <head>
-    <title>Home | TerraVecchia</title>
-	<link rel= "stylesheet" href="CSS2.css">
 
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/CSS2.css') }}">
-    <h1>Test 0.2</h1> <br>
-     <br>
+
+    <title>OLD SKY SPOTIFY</title>
+    <img src='spotify.png' alt ='logo'>
+
+
+
+
+     <style media="screen">
+        *,
+  *:before,
+  *:after{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+
+  body{
+    background-color: black;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+
+
+form{
+    height: 500px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 60%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(29, 226, 108, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder{
+    color: #4CAF50;
+}
+
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+form p{
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+    </style>
 </head>
 <body>
-    <center>
 
-        Insert an Artist Name to play his top track
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
 
-</center>
- <br>
-<center>
+    <form action="login.php" method="post">
+        <h2>Accesso</h2>
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="Login">
+        </div>
+    </form>
 
-    <form method="POST">
-
-        <input name="text">
-
-        <input type="submit">
-
-    </form> <br> <br>
-
-</center>
-
-<center>
-
-    {{ searchResults }}
-
-</center>
-
-<br>
-
-    <center>
-
-        <img src="{{ img }}" alt="immagine">
-
-    <br>
-
-</center>
-
-<center>
-
-   <audio controls>
-       <br>
-
-       <source src="{{ mp3 }}" type="audio/mpeg">
-
-        Your browser does not support the audio element.
-    </audio>
-
-    <br>
-</center>
-
-</body>
+    </html>
