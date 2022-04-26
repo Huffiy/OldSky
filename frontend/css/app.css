@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
+
+.container {
+    width: 700px;  
+    height: 200px;  
+    border: 5px;  
+    display: flex;  
+    justify-content: left;  
+    align-items: left; 
+}
+
+.rightcontainer {
+    width: 700px;  
+    height: 200px;  
+    border: 5px;  
+    display: flex;  
+    justify-content: right;  
+    align-items: right; 
+}
