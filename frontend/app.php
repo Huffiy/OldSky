@@ -20,7 +20,7 @@ else {
   <a class="active" href="#home">Home</a>
   <a href="#news">Le mie playlist</a>
   <a href="#contact">Preferiti</a>
-  <a href="#about">Logout</a>
+  <a href="logout.php">Logout</a>
 </div>
 
 <div style="padding-left:16px">

@@ -1,3 +1,28 @@
+<?php 
+session_start();
+if (isSet($_SESSION['loggedin']) && $_SESSION['loggedin']){
+    header('Location: ./app.php');
+}
+else {
+    echo "";
+}
+$user = $_POST['username'];
+$pwd = $_POST['password'];
+
+//Connect to a mysql database
+$db = new mysqli('localhost', 'root', 'pa$$w0rd', 'oldsky_db');
+
+//Check sql connection
+if ($db->connect_error) {
+    die('Connect Error (' . $db->connect_errno . ') '
+            . $db->connect_error);
+}
+
+// Sign up 
+$query = "INSERT INTO users (username, password) VALUES ('$user', '$pwd')";
+$result = $db->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,13 +152,18 @@ form p{
         <div class="shape"></div>
     </div>
 
-    <form action="login.php" method="post">
-        <h2>Accesso</h2>
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password" placeholder="password">
-        <input type="submit" value="Login">
-        <p>Non hai un account? <a href="signup.html">Registrati</a></p>
+    <form action="index.html" method="get">
+        <h2 placeholder="username">Sei stato registrato!</h2>
+        <input type="submit" value="Vai al login">
         </div>
     </form>
+
+    <form action="index.html" method="get">
+        <h2 placeholder="username">Sei stato registrato!</h2>
+        <a href="index.html">Vai al login</a>
+        </div>
+    </form>
+
+    
 
     </html>
