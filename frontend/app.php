@@ -11,20 +11,21 @@ else {
 <!DOCTYPE html>
 <head>
     <title>OldSky | Home</title>
-    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <div class="navbar">
-    <form action="./playlists">
-    <input type="submit" value="Le mie playlist" />
-    </form>
-    <form action="./profile">
-    <input type="submit" value="Profilo" />
-    </form>
-    </div>
+
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">Le mie playlist</a>
+  <a href="#contact">Preferiti</a>
+  <a href="#about">Logout</a>
+</div>
+
+<div style="padding-left:16px">
+
     <h1>OldSky</h1>
     <h2>Welcome <?php echo $_SESSION['username']; ?></h2>
-    <a href="./logout.php">Logout</a>
-    <a href="./app.php">Go to app</a>
-
+    </div>
 </body>
