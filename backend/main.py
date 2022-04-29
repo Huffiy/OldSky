@@ -10,17 +10,15 @@ if __name__ == "__main__":
 
     # Serves variables to flask webserver
     app = Flask(__name__)
-    @app.route('/')
-    def index():
-        return render_template('index.html')
 
-
-    @app.route('/', methods=['POST'])
+    @app.route('/', methods=['GET'])
     def my_form_post():
+        print("ciao")
         artistImgURL = "None"
         artistTrackURL = "None"
         artistURI = "None"
-        textboxInput = request.form['text']
+        textboxInput = request.args.get('artistName')
+
         searchInput = textboxInput
         spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
         results = spotify.search(q='artist:' + searchInput, type='artist')
@@ -39,7 +37,8 @@ if __name__ == "__main__":
                 searchResultsOut.append([track['name']])
                 artistTrackURL = track['preview_url']
         # ---
-        return render_template('index.html', img=artistImgURL, mp3=artistTrackURL, searchResults=searchResultsOut)
+        return format(artistTrackURL)
+        # return render_template('index.html', img=artistImgURL, mp3=artistTrackURL, searchResults=searchResultsOut)
 
 
     app.run(host="::1", port=8080, debug=True)
