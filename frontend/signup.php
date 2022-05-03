@@ -10,7 +10,7 @@ $user = $_POST['username'];
 $pwd = $_POST['password'];
 
 //Connect to a mysql database
-$db = new mysqli('localhost', 'root', 'pa$$w0rd', 'oldsky_db');
+$db = new mysqli('localhost', 'root', 'rowot00', 'oldsky_db');
 
 //Check sql connection
 if ($db->connect_error) {

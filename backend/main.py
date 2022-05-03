@@ -12,7 +12,7 @@ if __name__ == "__main__":
     app = Flask(__name__)
 
     @app.route('/', methods=['GET'])
-    def my_form_post():
+    def searchTrack():
         print("ciao")
         artistImgURL = "None"
         artistTrackURL = "None"
@@ -39,6 +39,7 @@ if __name__ == "__main__":
         # ---
         return format(artistTrackURL)
         # return render_template('index.html', img=artistImgURL, mp3=artistTrackURL, searchResults=searchResultsOut)
+    
 
 
     app.run(host="::1", port=8080, debug=True)
