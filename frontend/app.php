@@ -20,7 +20,12 @@ else {
   <a class="active" href="#home">Home</a>
   <a href="#news">Le mie playlist</a>
   <a href="#contact">Preferiti</a>
+  <a href="./myprofile.php">Profilo</a>
   <a href="logout.php">Logout</a>
+    <form action="search.php" method="get">
+        <input type="text" name="search" placeholder="Search..">
+        <button type="submit">Search</button>
+    </form>
 </div>
 
 <div style="padding-left:16px">

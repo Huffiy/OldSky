@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     // save a session
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $user;
-    header('Location: ./app.php');
+    header('Location: ./addComplementarySession.php');
 }
 else {
     echo "Login failed";
