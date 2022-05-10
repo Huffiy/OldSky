@@ -32,7 +32,6 @@ $result = $db->query($sql);
 
     <form action="createPlaylist.php" method="get">
         <input type="text" name="playlistName" placeholder="Crea una playlist">
-        <button type="submit">➕</button>
     </form>
     <?php
     while ($row = $result->fetch_assoc()) {

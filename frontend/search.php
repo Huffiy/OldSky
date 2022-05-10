@@ -35,9 +35,8 @@ $json = json_decode($content, true);
   <a href="app.php">Home</a>
   
     <form action="search.php" method="get">
-        <input type="text" name="search" placeholder="Search..">
-        <button type="submit">Search</button>
-    </form>
+        <input type="text" name="search" placeholder="Cerca una canzone">
+        </form>
 </div>
 
 <div style="padding-left:16px">

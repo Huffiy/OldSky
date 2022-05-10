@@ -24,7 +24,6 @@ else {
   <a href="logout.php">Logout</a>
     <form action="search.php" method="get">
         <input type="text" name="search" placeholder="Cerca una canzone">
-        <button type="submit">🔎</button>
     </form>
 </div>
 
