@@ -53,4 +53,4 @@ if __name__ == "__main__":
         
         return format(searchResultsOut)
 
-    app.run(host="::1", port=8080, debug=True) 
+    app.run(host="::1", port=8999, debug=True) 
