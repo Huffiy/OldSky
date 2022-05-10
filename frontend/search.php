@@ -13,7 +13,7 @@ $searchInput = $_GET['search'];
 $searchInput = str_replace(' ', '+', $searchInput);
 
 // get content through http
-$url = "http://localhost:8080/songsearch?artistsearch=$searchInput";
+$url = "http://localhost:8999/songsearch?artistsearch=$searchInput";
 $content = file_get_contents($url);
 
 // store json content into array
