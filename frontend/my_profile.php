@@ -1,0 +1,37 @@
+<?php
+session_start();
+// check if session is set
+if (!isset($_SESSION['loggedin'])) {
+    header('401 Unauthorized');
+}
+$userID = $_SESSION['userID'];
+
+// connect to mysql database
+$db = new mysqli("localhost", "root", "rowot00", "oldsky_db");
+
+// get all contents from table liked
+$sql = "SELECT * FROM `users` WHERE `userID` = $userID";
+$result = $db->query($sql);
+?>
+<!DOCTYPE html>
+<head>
+    <title>OldSky | Home</title>
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+<div class="topnav">
+<a class="active" href="#home">Profilo</a>
+  <a href="app.php">Home</a>
+</div>
+
+<div style="padding-left:16px">
+
+    <h1>OldSky | Il mio profilo</h1>
+    <h2>Nome Utente: <?php echo $_SESSION['username'];?></h2> <br>
+    <h2>User ID: <?php echo $_SESSION['userID'];?></h2> <br> <br>
+    <a href="changepwd.php">[ Cambia password ]</a> <a href="deleteaccount.php">[ Elimina account ]</a>
+
+    </div>
+</body>

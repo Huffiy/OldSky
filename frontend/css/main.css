@@ -2,3 +2,13 @@ body {
     background-color: black;
     color: white;
 }
+
+a {
+    color: white;
+    font-weight: bold;
+}
+
+a:visited {
+    color: white;
+    font-weight: bold;
+}
