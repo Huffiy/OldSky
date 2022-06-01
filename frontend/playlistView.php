@@ -24,13 +24,13 @@ $result = $db->query($sql);
 <body>
 
 <div class="topnav">
-<a class="active" href="#home">Le mie playlist</a>
-  <a href="app.php">Home</a>
+<a class="active" href="#home">Playlist: <?php echo $plName;?></a>
+  <a onclick="history.back()">Indietro</a>
 </div>
 
 <div style="padding-left:16px">
 
-    <h1>OldSky | Le tue playlist</h1>
+    <h1><?php echo $plName;?></h1>
 
     <?php
     while ($row = $result->fetch_assoc()) {

@@ -32,7 +32,7 @@ $json = json_decode($content, true);
 <body>
 
 <div class="topnav">
-<a class="active" href="app.php">Player</a>
+<a class="active" href="#">Player</a>
 <a href="app.php">Home</a>
   <a href="my_playlists.php">Le mie playlist</a>
   <a href="my_liked.php">Preferiti</a>
