@@ -1,12 +1,5 @@
 <?php 
 session_start();
-if (isSet($_SESSION['loggedin']) && $_SESSION['loggedin']){
-    header("HTTP/1.1 401 Unauthorized");
-    die;
-}
-else {
-    echo "";
-}
 $user = $_POST['username'];
 $pwd = $_POST['password'];
 
