@@ -2,7 +2,8 @@
 session_start();
 // check if session is set
 if (!isset($_SESSION['loggedin'])) {
-    header('401 Unauthorized');
+    header("HTTP/1.1 401 Unauthorized");
+    die;
 }
 $userID = $_SESSION['userID'];
 $plName = $_GET['name'];
@@ -11,7 +12,7 @@ $plName = $_GET['name'];
 $db = new mysqli("localhost", "root", "rowot00", "oldsky_db");
 
 // get all contents from table liked
-$sql = "SELECT * FROM playlist_tracks WHERE `plName` = '$plName'";
+$sql = "SELECT * FROM playlist_tracks WHERE `plName` = '$plName' AND `plUserID` = '$userID'";
 $result = $db->query($sql);
 ?>
 <!DOCTYPE html>

@@ -1,6 +1,10 @@
 <?php
 // start session
 session_start();
+if (!isset($_SESSION['loggedin'])) {
+    header("HTTP/1.1 401 Unauthorized");
+    die;
+}
 $playlistName = $_GET['playlistName'];
 $userID = $_SESSION['userID'];
 

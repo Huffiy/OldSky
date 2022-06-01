@@ -2,7 +2,8 @@
 session_start();
 // check if session is set
 if (!isset($_SESSION['loggedin'])) {
-    header('401 Unauthorized');
+    header("HTTP/1.1 401 Unauthorized");
+    die;
 }
 $userID = $_SESSION['userID'];
 $trackName = $_GET['trackName'];

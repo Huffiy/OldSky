@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['loggedin'])) {
+    header("HTTP/1.1 401 Unauthorized");
+    die;
+}
 // connect to sql database
 $db = new mysqli("localhost", "root", "rowot00", "oldsky_db");
 

@@ -1,7 +1,8 @@
 <?php 
 // check session
 if (!isset($_SESSION['loggedin'])) {
-    header('401 Unauthorized');
+    header("HTTP/1.1 401 Unauthorized");
+    die;
 }
 
 ?>

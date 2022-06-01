@@ -2,7 +2,8 @@
 session_start();
 // check if session is set
 if (!isset($_SESSION['loggedin'])) {
-    header('401 Unauthorized');
+    header("HTTP/1.1 401 Unauthorized");
+    die;
 }
 $userID = $_SESSION['userID'];
 
@@ -22,8 +23,14 @@ $result = $db->query($sql);
 <body>
 
 <div class="topnav">
-<a class="active" href="#home">Preferiti</a>
-  <a href="app.php">Home</a>
+<a href="app.php">Home</a>
+  <a href="my_playlists.php">Le mie playlist</a>
+  <a class="active" href="my_liked.php">Preferiti</a>
+  <a href="my_profile.php">Profilo</a>
+  <a href="logout.php">Logout</a>
+    <form action="search.php" method="get">
+        <input type="text" name="search" placeholder="Cerca una canzone">
+    </form>
 </div>
 
 <div style="padding-left:16px">

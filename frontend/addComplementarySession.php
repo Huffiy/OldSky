@@ -4,7 +4,8 @@ $user = $_SESSION['username'];
 
 // if session is not set
 if (!isset($_SESSION['username'])) {
-    header('401 Unauthorized');
+    header("HTTP/1.1 401 Unauthorized");
+    die;
 }
 
 // connect to sql database

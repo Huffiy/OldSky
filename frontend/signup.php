@@ -1,7 +1,8 @@
 <?php 
 session_start();
 if (isSet($_SESSION['loggedin']) && $_SESSION['loggedin']){
-    header('Location: ./app.php');
+    header("HTTP/1.1 401 Unauthorized");
+    die;
 }
 else {
     echo "";

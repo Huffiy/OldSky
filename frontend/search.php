@@ -5,7 +5,8 @@ if (isSet($_SESSION['loggedin'])){
     echo '';
 }
 else {
-    header('401 Unauthorized');
+    header("HTTP/1.1 401 Unauthorized");
+    die;
 }
 
 $searchInput = $_GET['search'];
@@ -31,12 +32,16 @@ $json = json_decode($content, true);
 <body>
 
 <div class="topnav">
-  <a class="active" href="#home">Player</a>
-  <a href="app.php">Home</a>
-  
+<a class="active" href="app.php">Player</a>
+<a href="app.php">Home</a>
+  <a href="my_playlists.php">Le mie playlist</a>
+  <a href="my_liked.php">Preferiti</a>
+  <a href="my_profile.php">Profilo</a>
+  <a href="logout.php">Logout</a>
     <form action="search.php" method="get">
         <input type="text" name="search" placeholder="Cerca una canzone">
-        </form>
+    </form>
+
 </div>
 
 <div style="padding-left:16px">
