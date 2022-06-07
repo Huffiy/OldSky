@@ -16,6 +16,6 @@ $sql = "INSERT INTO `playlist_tracks` (`plName`, `trackName`, `plUserID`) VALUES
 
 $result = $db->query($sql);
 
-header('Location: ./app.php');
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
 

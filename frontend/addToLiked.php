@@ -17,5 +17,5 @@ $sql = "INSERT INTO `liked` (`userID`, `track_name`) VALUES ('$userID', '$likedT
 // execute sql query
 $mysqli->query($sql);
 
-header('Location: ./app.php');
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
