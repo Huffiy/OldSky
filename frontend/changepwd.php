@@ -1,7 +1,11 @@
 <?php 
 // check session
-if (!isset($_SESSION['loggedin'])) {
-    header("HTTP/1.1 401 Unauthorized");
+session_start();
+if (isSet($_SESSION['loggedin']) && $_SESSION['loggedin']){
+    echo "";
+}
+else {
+    header('HTTP 1.1 401 Unauthorized');
     die;
 }
 
